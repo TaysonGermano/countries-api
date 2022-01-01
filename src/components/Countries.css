@@ -1,0 +1,73 @@
+.Countries-wraper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Countries-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.Countries-form select {
+  padding: 10px;
+  border: none;
+  box-shadow: 0px 2px 5px 0px #161f255e;
+  border-radius: 5px;
+  color: inherit;
+  width: 180px;
+}
+
+.dark .Countries-form option {
+  background-color: #202d36;
+  color: white;
+}
+
+.dark .Countries-form select {
+  background-color: inherit;
+}
+
+.Countries-input {
+  box-shadow: 0px 2px 5px 0px #161f255e;
+  border-radius: 5px;
+  width: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.Countries-input i::before {
+  font-size: 20px;
+  color: lightgray;
+}
+
+.dark .Countries-input i::before {
+  color: inherit;
+}
+
+.Countries-input i {
+  margin: 0 10px;
+  pointer-events: none;
+}
+
+.Countries-input input {
+  flex-grow: 1;
+  border: none;
+  height: 37px;
+  font-size: 15px;
+  color: inherit;
+}
+
+.dark .Countries-input input {
+  background-color: inherit;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+.dark input::placeholder {
+  color: inherit;
+}

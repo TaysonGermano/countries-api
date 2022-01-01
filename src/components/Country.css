@@ -1,0 +1,22 @@
+.Country {
+  width: 260px;
+  box-shadow: 0px 2px 5px 0px #161f255e;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+
+.dark .Country {
+  background-color: inherit;
+}
+
+.Country-flag {
+  width: 100%;
+}
+
+.Country-details {
+  padding: 15px;
+}
+
+.Country-details div {
+  margin-bottom: 5px;
+}

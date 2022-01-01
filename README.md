@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+// Rest Coutnry API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode _(optional)_
 
-## Available Scripts
+// Steps
 
-In the project directory, you can run:
+1- Create a Country component which will display individuals country
+2- Create Countries to display every country on App component
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+import React, { Component } from "react";
+import axios from "axios";
+import Country from "./Country";
+import "./Countries.css";
 
-### `npm test`
+class Countries extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      country: [
+        {
+          name: {
+            common: "",
+          },
+          capital: "",
+          flags: {
+            png: "",
+          },
+          region: "",
+          population: "",
+        },
+      ],
+      search: "",
+      filter: "",
+    };
+    this.searchHandler = this.searchHandler.bind(this);
+    this.filterHandler = this.filterHandler.bind(this);
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  apiRequest(type, query) {
+    const searchName = `https://restcountries.com/v3.1/${type}${query}`;
+    axios.get(searchName).then((resp) => {
+      this.setState({ country: resp.data });
+    });
+  }
 
-### `npm run build`
+  //Search event handler
+  searchHandler(ev) {
+    this.setState({ search: ev.target.value });
+    this.apiRequest("name/", this.state.search);
+  }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  //Component lifecycle
+  componentDidMount() {
+    this.apiRequest("all", "");
+  }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  //Filter event handler
+  filterHandler(ev) {
+    this.setState({ filter: ev.target.value });
+    this.apiRequest("region/", this.state.filter);
+  }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  render() {
+    const country = this.state.country;
+    return (
+      <div className="Countries container">
+        <form>
+          <div className="Coutries-input">
+            <i className="fas fa-search"></i>
+            <input type="text" name="country" onChange={this.searchHandler} />
+          </div>
+          <div className="Countries-filter">
+            <select name="filter" id="filter" onChange={this.filterHandler}>
+              <option value="">Filter by Region</option>
+              <option value="africa">Africa</option>
+              <option value="america">America</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="oceania">Oceania</option>
+            </select>
+          </div>
+        </form>
+        <div className="Countries-wraper">
+          {country.map((c) => (
+            <Country
+              img={c.flags.png}
+              name={c.name.common}
+              population={parseInt(c.population).toLocaleString()}
+              capital={c.capital}
+              region={c.region}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+}
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default Countries;
