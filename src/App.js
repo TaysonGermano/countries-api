@@ -1,22 +1,25 @@
-import { useState } from "react";
-import Countries from "./components/Countries";
+import Theme from "./components/Theme";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import CountryDetails from "./components/CountryDetails";
 
-function App() {
-  const [dark, setDark] = useState(false);
-
-  function darkMode(img) {
-    !img ? setDark(true) : setDark(false);
-  }
+export default function App() {
   return (
-    <div className={dark ? "App dark" : "App"}>
-      <header>
-        <Navbar mode={darkMode} img={dark} />
-      </header>
-      <Countries />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Theme />}>
+          <Route path="hey" element={<CountryDetails />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    // <BrowserRouter>
+    //   <div className="App">
+    //     <Routes>
+    //       <Route path="/" element={<Theme />}>
+    //         <Route path="Nigeria" element={<CountryDetails />} />
+    //       </Route>
+    //     </Routes>
+    //   </div>
+    // </BrowserRouter>
   );
 }
-
-export default App;

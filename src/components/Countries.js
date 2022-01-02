@@ -3,7 +3,7 @@ import axios from "axios";
 import Country from "./Country";
 import "./Countries.css";
 
-export default function Countries() {
+export default function Countries(props) {
   const [country, setCountry] = useState([
     {
       name: {
@@ -52,39 +52,43 @@ export default function Countries() {
   }, [filter]);
 
   return (
-    <div className="Countries container">
-      <form className="Countries-form">
-        <div className="Countries-input" onClick={selectInputHandler}>
-          <i className="fas fa-search"></i>
-          <input
-            type="text"
-            name="country"
-            placeholder="Search for a country..."
-            onChange={searchHandler}
-          />
+    <div>
+      {!props.loading && (
+        <div className="Countries container">
+          <form className="Countries-form">
+            <div className="Countries-input" onClick={selectInputHandler}>
+              <i className="fas fa-search"></i>
+              <input
+                type="text"
+                name="Search"
+                placeholder="Search for a country..."
+                onChange={searchHandler}
+              />
+            </div>
+            <div className="Countries-filter">
+              <select name="Filter" id="filter" onChange={filterHandler}>
+                <option value="">Filter by Region</option>
+                <option value="africa">Africa</option>
+                <option value="america">America</option>
+                <option value="asia">Asia</option>
+                <option value="europe">Europe</option>
+                <option value="oceania">Oceania</option>
+              </select>
+            </div>
+          </form>
+          <div className="Countries-wraper">
+            {country.map((c) => (
+              <Country
+                img={c.flags.png}
+                name={c.name.common}
+                population={parseInt(c.population).toLocaleString()}
+                capital={c.capital}
+                region={c.region}
+              />
+            ))}
+          </div>
         </div>
-        <div className="Countries-filter">
-          <select name="filter" id="filter" onChange={filterHandler}>
-            <option value="">Filter by Region</option>
-            <option value="africa">Africa</option>
-            <option value="america">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-          </select>
-        </div>
-      </form>
-      <div className="Countries-wraper">
-        {country.map((c) => (
-          <Country
-            img={c.flags.png}
-            name={c.name.common}
-            population={parseInt(c.population).toLocaleString()}
-            capital={c.capital}
-            region={c.region}
-          />
-        ))}
-      </div>
+      )}
     </div>
   );
 }
