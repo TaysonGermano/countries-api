@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import Countries from "./Countries";
 import Loader from "./Loader";
 
-export default function CountryDetails() {
+export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -10,15 +11,14 @@ export default function CountryDetails() {
       setLoading(false);
     }, 3000);
   });
-  //   function fetchCountry(name) {}
 
   return (
-    <div className="CountryDetails">
+    <div className="home">
       <Loader isLoading={loading} />
       <header style={loading ? { display: "none" } : { display: "block" }}>
         <Navbar />
       </header>
-      <div className="CountryDetails-Country"></div>
+      <Countries loading={loading} />
     </div>
   );
 }

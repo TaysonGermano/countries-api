@@ -1,15 +1,3 @@
-.Theme {
-  background-color: white;
-  color: #333333;
-  transition: all 0.5s ease-in-out;
-  background-color: #fafafa;
-}
-
-.Theme.dark {
-  background-color: #202d36;
-  color: white;
-}
-
 .loader {
   display: flex;
   height: 100vh;

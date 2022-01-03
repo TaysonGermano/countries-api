@@ -19,7 +19,7 @@ const Country = (props) => {
           </div>
         </div>
       </Link>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 };
