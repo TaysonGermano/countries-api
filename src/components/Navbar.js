@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = (props) => {
@@ -14,9 +15,11 @@ const Navbar = (props) => {
   });
   return (
     <div className="Navbar container">
-      <div className="Navbar-title">
-        <h1>Where in the world?</h1>
-      </div>
+      <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+        <div className="Navbar-title">
+          <h1>Where in the world?</h1>
+        </div>
+      </Link>
       <div className="Navbar-darkmode">
         <i
           className={dark ? "fas fa-sun" : "fas fa-moon"}

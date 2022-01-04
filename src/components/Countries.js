@@ -61,6 +61,7 @@ export default function Countries(props) {
               <input
                 type="text"
                 name="Search"
+                value={search}
                 placeholder="Search for a country..."
                 onChange={searchHandler}
               />

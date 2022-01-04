@@ -4,7 +4,7 @@ import "./Country.css";
 const Country = (props) => {
   return (
     <div className="Country">
-      <Link to={`/${props.name}`} style={{ color: "inherit" }}>
+      <Link to={`/country/${props.name}`} style={{ color: "inherit" }}>
         <img src={props.img} alt="Country" className="Country-flag" />
         <div className="Country-details">
           <h2 className="Country-name">{props.name}</h2>

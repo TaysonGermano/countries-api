@@ -1,0 +1,75 @@
+.Country-info {
+  min-height: 100vh;
+}
+
+.Button-wrapper {
+  margin-bottom: 3em;
+}
+
+.Button,
+.Link {
+  padding: 10px 15px;
+  box-shadow: 0px 0px 5px 2px #161f25a3;
+  border-radius: 5px;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.Button {
+  width: 70px;
+}
+
+.Link {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.Full-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.Full-details img {
+  width: 100%;
+  box-sizing: border-box;
+  border: 30px solid rgb(245, 245, 245);
+  border-radius: 10px;
+}
+
+.Details,
+.Flag {
+  width: 50%;
+}
+
+.Details {
+  box-sizing: border-box;
+  padding: 0 50px;
+}
+
+.dark .Full-details img {
+  border: 30px solid #1c2730;
+}
+
+.Details h1 {
+  margin-bottom: 30px;
+}
+
+.colum div {
+  margin-bottom: 10px;
+}
+
+.colum:nth-child(1) {
+  margin-bottom: 3em;
+}
