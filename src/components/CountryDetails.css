@@ -23,6 +23,10 @@
   width: 70px;
 }
 
+.Border div {
+  display: inline-block;
+}
+
 .Link {
   font-size: 12px;
   margin-left: 10px;
@@ -72,4 +76,28 @@
 
 .colum:nth-child(1) {
   margin-bottom: 3em;
+}
+
+@media screen and (max-width: 740px) {
+  .Full-details {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .Details,
+  .Flag {
+    width: 100%;
+  }
+
+  .Border b {
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .Border {
+    display: flex;
+    flex-direction: column;
+  }
+  .Border .Link {
+    margin: 0 10px 0 0;
+  }
 }

@@ -62,8 +62,7 @@ export default function CountryDetails(props) {
   ]);
 
   const params = useParams();
-  const [prmName, setPrmName] = useState(params.name); //parameter
-  const [prmCode, setPrmCode] = useState(params.code); //parameter
+  const [prmName] = useState(params.name); //parameter
   const [failed, setFailed] = useState(false);
 
   const apiRequest = (type, query) => {
@@ -149,15 +148,17 @@ export default function CountryDetails(props) {
               </div>
               <div className="Border">
                 <b>Border Countries: </b>{" "}
-                {data[0].borders.map((b) => (
-                  <Link
-                    className="Link"
-                    to={`/country/code/${b}`}
-                    onClick={() => apiRequest("alpha", b)}
-                  >
-                    {b}
-                  </Link>
-                ))}
+                <div>
+                  {data[0].borders.map((b) => (
+                    <Link
+                      className="Link"
+                      to={`/country/code/${b}`}
+                      onClick={() => apiRequest("alpha", b)}
+                    >
+                      {b}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

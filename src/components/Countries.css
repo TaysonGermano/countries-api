@@ -71,3 +71,13 @@ input::placeholder {
 .dark input::placeholder {
   color: inherit;
 }
+
+@media screen and (max-width: 646px) {
+  .Countries-wraper {
+    justify-content: center;
+  }
+
+  .Countries-form select {
+    margin-top: 20px;
+  }
+}

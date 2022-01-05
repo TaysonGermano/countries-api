@@ -1,6 +1,5 @@
 import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import "./App.css";
 import CountrySingle from "./components/CountrySingle";
 import Fail from "./components/404";

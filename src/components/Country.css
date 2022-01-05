@@ -20,3 +20,9 @@
 .Country-details div {
   margin-bottom: 5px;
 }
+
+@media screen and (max-width: 646px) {
+  .Country {
+    width: 100%;
+  }
+}
