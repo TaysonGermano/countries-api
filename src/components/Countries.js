@@ -46,6 +46,11 @@ export default function Countries(props) {
     input.select();
   };
 
+  //submit
+  const submitHandler = (ev) => {
+    ev.preventDefault();
+  };
+
   //Component lifecycle
   useEffect(() => {
     filter ? apiRequest("region/", filter) : apiRequest("all", "");
@@ -55,7 +60,7 @@ export default function Countries(props) {
     <div>
       {!props.loading && (
         <div className="Countries container">
-          <form className="Countries-form">
+          <form className="Countries-form" onSubmit={submitHandler}>
             <div className="Countries-input" onClick={selectInputHandler}>
               <i className="fas fa-search"></i>
               <input
