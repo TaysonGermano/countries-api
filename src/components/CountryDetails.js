@@ -1,10 +1,13 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./CountryDetails.css";
 import Fail from "./404";
 
 export default function CountryDetails(props) {
+  //
+  const navigation = useNavigate();
   // data ghost
   const [data, setData] = useState([
     {
@@ -106,9 +109,9 @@ export default function CountryDetails(props) {
       ) : (
         <div className="Country-info container">
           <div className="Button-wrapper">
-            <Link className="Button" to="/">
+            <button className="Button" onClick={() => navigation(-1)}>
               <i className="fas fa-arrow-left"></i> Back
-            </Link>
+            </button>
           </div>
           <div className="Full-details">
             <div className="Flag">

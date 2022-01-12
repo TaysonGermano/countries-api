@@ -17,10 +17,12 @@
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .Button {
-  width: 70px;
+  width: 80px;
 }
 
 .Border div {
