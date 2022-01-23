@@ -152,7 +152,7 @@ export default function CountryDetails(props) {
               <div className="Border">
                 <b>Border Countries: </b>{" "}
                 <div>
-                  {data[0].borders.map((b) => (
+                  {data[0].borders?.map((b) => (
                     <Link
                       className="Link"
                       to={`/country/code/${b}`}
