@@ -26,7 +26,7 @@ Users are be able to:
 
 ### Screenshot
 
-![](country-API-screenshot.png)
+![](https://user-images.githubusercontent.com/29797099/151499259-0683a9a7-f5fa-4d08-a484-63b4be266038.png)
 
 ### Links
 
