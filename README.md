@@ -26,7 +26,7 @@ Users are be able to:
 
 ### Screenshot
 
-![](./country-API-screenshot.png)
+![](country-API-screenshot.png)
 
 ### Links
 
