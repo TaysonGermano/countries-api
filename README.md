@@ -53,4 +53,4 @@ I learned a lot about APIs and how to make an API request using useEffect or Com
 
 ## Author
 
-- Website - Tyson Monteiro
+- Tyson Monteiro
