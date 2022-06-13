@@ -18,7 +18,7 @@ export default function Home() {
       <header style={loading ? { display: "none" } : { display: "block" }}>
         <Navbar />
       </header>
-      <Countries loading={loading} />
+      <Countries/>
     </div>
   );
 }
