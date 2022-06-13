@@ -18,7 +18,7 @@ export default function CountrySingle(props) {
       <header style={loading ? { display: "none" } : { display: "block" }}>
         <Navbar />
       </header>
-      {!loading && <CountryDetails />}
+      <CountryDetails />
     </div>
   );
 }
