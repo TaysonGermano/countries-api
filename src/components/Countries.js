@@ -57,8 +57,7 @@ export default function Countries(props) {
   }, [filter]);
 
   return (
-    <div>
-      {!props.loading && (
+    <>
         <div className="Countries container">
           <form className="Countries-form" onSubmit={submitHandler}>
             <div className="Countries-input" onClick={selectInputHandler}>
@@ -94,7 +93,6 @@ export default function Countries(props) {
             ))}
           </div>
         </div>
-      )}
-    </div>
+    </>
   );
 }
